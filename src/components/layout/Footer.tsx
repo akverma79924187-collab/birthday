@@ -27,13 +27,13 @@ export default function Footer() {
   const nextPath = currentIndex >= 0 && currentIndex < PATH_FLOW.length - 1 ? PATH_FLOW[currentIndex + 1] : null;
 
   return (
-    <footer className="relative mt-auto border-t border-[#e6ca85]/10 bg-[#060509] py-12 px-6 overflow-hidden">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="relative mt-auto border-t border-[#e6ca85]/10 bg-[#060509] py-8 sm:py-12 px-4 sm:px-6 overflow-hidden">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-center md:text-left">
         
         {/* Left note */}
-        <div className="flex items-center gap-3">
-          <Heart className="w-5 h-5 text-[#df95a6] fill-[#df95a6]/40 animate-pulse" />
-          <span className="font-serif-display text-sm tracking-wide text-stone-300">
+        <div className="flex items-center justify-center gap-2 sm:gap-3">
+          <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-[#df95a6] fill-[#df95a6]/40 animate-pulse flex-shrink-0" />
+          <span className="font-serif-display text-xs sm:text-sm tracking-wide text-stone-300">
             Crafted forever for {BIRTHDAY_DATA.herName} &bull; {BIRTHDAY_DATA.birthdayDate}
           </span>
         </div>

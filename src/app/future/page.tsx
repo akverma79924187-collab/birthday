@@ -16,10 +16,10 @@ export default function FuturePage() {
             <Compass className="w-3.5 h-3.5" />
             <span>Unwritten Chapters</span>
           </div>
-          <h1 className="font-serif-display text-5xl sm:text-7xl font-bold text-gold-gradient">
+          <h1 className="font-serif-display text-4xl sm:text-7xl font-bold text-gold-gradient">
             Our Future Dreams
           </h1>
-          <p className="font-serif-display text-xl text-stone-300 italic">
+          <p className="font-serif-display text-base sm:text-xl text-stone-300 italic">
             The adventures waiting for us just beyond the horizon.
           </p>
         </div>

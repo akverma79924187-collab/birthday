@@ -79,24 +79,24 @@ export default function SurprisePage() {
                 <Gift className="w-4 h-4 text-[#df95a6]" />
                 <span>The Grand Surprise Unlocked</span>
               </div>
-              <h1 className="font-serif-display text-5xl sm:text-7xl font-extrabold text-gold-gradient">
+              <h1 className="font-serif-display text-4xl sm:text-7xl font-extrabold text-gold-gradient">
                 {BIRTHDAY_DATA.surpriseMessage.headline}
               </h1>
-              <p className="font-serif-display text-xl sm:text-2xl text-[#df95a6] italic max-w-2xl mx-auto">
+              <p className="font-serif-display text-lg sm:text-2xl text-[#df95a6] italic max-w-2xl mx-auto px-2">
                 {BIRTHDAY_DATA.surpriseMessage.subtext}
               </p>
             </div>
 
             {/* Featured Video Memory Section */}
-            <div className="max-w-3xl mx-auto glass-panel rounded-3xl p-4 sm:p-6 border border-[#e6ca85]/40 shadow-2xl space-y-3">
+            <div className="max-w-3xl mx-auto glass-panel rounded-3xl p-3 sm:p-6 border border-[#e6ca85]/40 shadow-2xl space-y-3">
               <div className="flex items-center justify-between px-2 text-xs font-mono text-[#e6ca85]">
                 <span className="flex items-center gap-1.5">
                   <Video className="w-4 h-4 text-[#df95a6]" />
                   <span>Featured Motion Moment</span>
                 </span>
-                <span className="text-stone-400">Saloni & Amit</span>
+                <span className="text-stone-400">{BIRTHDAY_DATA.herName} & {BIRTHDAY_DATA.hisName}</span>
               </div>
-              <div className="relative w-full h-64 sm:h-96 rounded-2xl overflow-hidden bg-black border border-white/10 shadow-lg">
+              <div className="relative w-full h-52 sm:h-96 rounded-2xl overflow-hidden bg-black border border-white/10 shadow-lg">
                 <video
                   src={BIRTHDAY_DATA.featuredVideo}
                   controls
@@ -110,15 +110,15 @@ export default function SurprisePage() {
             </div>
 
             {/* Surprise Ticket / VIP Voucher Card */}
-            <div className="glass-panel rounded-3xl p-8 sm:p-12 border-2 border-[#e6ca85] max-w-3xl mx-auto space-y-8 shadow-[0_0_80px_rgba(230,202,133,0.3)] bg-gradient-to-br from-[#1c152e] via-[#2a1d42] to-[#1c152e] relative overflow-hidden">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-6 border-b border-white/10 pb-6">
-                <div className="flex items-center gap-3 text-left">
-                  <Ticket className="w-8 h-8 text-[#e6ca85]" />
+            <div className="glass-panel rounded-3xl p-5 sm:p-12 border-2 border-[#e6ca85] max-w-3xl mx-auto space-y-6 sm:space-y-8 shadow-[0_0_80px_rgba(230,202,133,0.3)] bg-gradient-to-br from-[#1c152e] via-[#2a1d42] to-[#1c152e] relative overflow-hidden">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 border-b border-white/10 pb-6 text-center sm:text-left">
+                <div className="flex flex-col sm:flex-row items-center gap-3">
+                  <Ticket className="w-7 h-7 sm:w-8 sm:h-8 text-[#e6ca85]" />
                   <div>
                     <span className="font-mono text-xs text-stone-400 block uppercase">
                       VIP Birthday Pass
                     </span>
-                    <span className="font-serif-display text-2xl font-bold text-stone-100">
+                    <span className="font-serif-display text-xl sm:text-2xl font-bold text-stone-100">
                       Weekend Escape to Paris
                     </span>
                   </div>
@@ -129,9 +129,9 @@ export default function SurprisePage() {
               </div>
 
               {/* Secret Note */}
-              <div className="p-6 rounded-2xl bg-black/40 border border-[#df95a6]/30 flex items-start gap-4 text-left">
-                <Key className="w-6 h-6 text-[#df95a6] flex-shrink-0 mt-1" />
-                <p className="font-serif-display text-stone-200 text-sm sm:text-base leading-relaxed">
+              <div className="p-4 sm:p-6 rounded-2xl bg-black/40 border border-[#df95a6]/30 flex items-start gap-3 sm:gap-4 text-left">
+                <Key className="w-5 h-5 sm:w-6 sm:h-6 text-[#df95a6] flex-shrink-0 mt-0.5 sm:mt-1" />
+                <p className="font-serif-display text-stone-200 text-xs sm:text-base leading-relaxed">
                   &ldquo;{BIRTHDAY_DATA.surpriseMessage.secretNote}&rdquo;
                 </p>
               </div>

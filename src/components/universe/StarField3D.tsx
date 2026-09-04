@@ -74,7 +74,7 @@ export default function StarField3D() {
   }
 
   return (
-    <div className="w-full h-[550px] sm:h-[650px] relative rounded-3xl overflow-hidden border border-[#e6ca85]/30 shadow-[0_0_50px_rgba(230,202,133,0.15)] bg-[#07060a]">
+    <div className="w-full h-[380px] sm:h-[650px] relative rounded-3xl overflow-hidden border border-[#e6ca85]/30 shadow-[0_0_50px_rgba(230,202,133,0.15)] bg-[#07060a]">
       <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
         <ambientLight intensity={0.5} />
         <OrbitingStars />

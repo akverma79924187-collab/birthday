@@ -57,7 +57,7 @@ export const BIRTHDAY_DATA = {
   herName: "Saloni",
   hisName: "Amit",
   nickname: "My Love",
-  birthdayDate: "September 2",
+  birthdayDate: "September 7",
   ageYears: "24",
   relationshipStart: "October 14, 2021",
   mainThemeColor: "#e6ca85",

@@ -85,7 +85,7 @@ export default function EntrancePage() {
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-0" />
 
       {/* Cinematic Spotlight backdrop */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-radial from-[#e6ca85]/10 via-[#df95a6]/5 to-transparent blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] bg-radial from-[#e6ca85]/10 via-[#df95a6]/5 to-transparent blur-3xl rounded-full pointer-events-none" />
 
       {/* Main Entrance Content */}
       <motion.div
@@ -106,7 +106,7 @@ export default function EntrancePage() {
         </motion.div>
 
         {/* Letter-by-Letter Name Reveal */}
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-2 w-full">
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -116,7 +116,7 @@ export default function EntrancePage() {
             Happy Birthday, My Beloved
           </motion.h2>
 
-          <h1 className="font-serif-display text-6xl sm:text-8xl md:text-9xl font-bold tracking-tight text-gold-gradient flex items-center justify-center overflow-hidden py-2">
+          <h1 className="font-serif-display text-4xl sm:text-7xl md:text-9xl font-bold tracking-tight flex flex-wrap items-center justify-center py-2">
             {nameLetters.map((letter, idx) => (
               <motion.span
                 key={idx}
@@ -127,7 +127,7 @@ export default function EntrancePage() {
                   duration: 0.8,
                   ease: [0.2, 0.65, 0.3, 0.9],
                 }}
-                className="inline-block hover:scale-105 transition-transform"
+                className="inline-block text-gold-gradient hover:scale-105 transition-transform"
               >
                 {letter}
               </motion.span>

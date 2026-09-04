@@ -28,7 +28,7 @@ export default function ForeverPage() {
 
         {/* Her Name & Infinity Symbol */}
         <div className="space-y-4">
-          <h1 className="font-serif-display text-6xl sm:text-8xl font-extrabold text-gold-gradient tracking-tight">
+          <h1 className="font-serif-display text-5xl sm:text-8xl font-extrabold text-gold-gradient tracking-tight">
             {BIRTHDAY_DATA.herName}
           </h1>
 
@@ -40,7 +40,7 @@ export default function ForeverPage() {
         </div>
 
         {/* Final Emotional Message */}
-        <p className="font-serif-display text-2xl sm:text-3xl text-stone-200 italic leading-relaxed">
+        <p className="font-serif-display text-xl sm:text-3xl text-stone-200 italic leading-relaxed">
           &ldquo;You are my today, my tomorrow, and my forever. Happy Birthday, my whole heart.&rdquo;
         </p>
 

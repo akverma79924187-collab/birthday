@@ -54,23 +54,23 @@ export default function StoryPage() {
   return (
     <div ref={containerRef} className="relative min-h-screen py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       {/* Header */}
-      <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+      <div className="text-center max-w-3xl mx-auto space-y-4 mb-12 sm:mb-20">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#120e1e] border border-[#e6ca85]/30 text-xs font-mono text-[#e6ca85] uppercase tracking-widest">
           <Sparkles className="w-3.5 h-3.5" />
           <span>Our Journey Through Time</span>
         </div>
-        <h1 className="font-serif-display text-5xl sm:text-7xl font-bold text-gold-gradient">
+        <h1 className="font-serif-display text-4xl sm:text-7xl font-bold text-gold-gradient">
           Our Love Story Timeline
         </h1>
-        <p className="font-serif-display text-xl text-stone-300 italic">
+        <p className="font-serif-display text-base sm:text-xl text-stone-300 italic">
           Every moment with you is a milestone etched into my soul.
         </p>
       </div>
 
       {/* Timeline Wrapper */}
       <div className="relative">
-        {/* Animated Drawing Central Vertical Line */}
-        <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0.5 bg-stone-800">
+        {/* Animated Drawing Central Vertical Line (Desktop only) */}
+        <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0.5 bg-stone-800 hidden md:block">
           <motion.div
             style={{ scaleY, transformOrigin: 'top' }}
             className="w-full h-full bg-gradient-to-b from-[#e6ca85] via-[#df95a6] to-[#e6ca85] shadow-[0_0_15px_#e6ca85]"
@@ -78,19 +78,19 @@ export default function StoryPage() {
         </div>
 
         {/* Milestone Cards */}
-        <div className="space-y-24 relative z-10">
+        <div className="space-y-12 sm:space-y-24 relative z-10">
           {BIRTHDAY_DATA.story.map((event, index) => {
             const isEven = index % 2 === 0;
             return (
               <div
                 key={event.id}
-                className={`timeline-card flex flex-col md:flex-row items-center gap-8 ${
+                className={`timeline-card flex flex-col md:flex-row items-center gap-6 sm:gap-8 ${
                   isEven ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >
                 {/* Content Side */}
                 <div className={`w-full md:w-1/2 ${isEven ? 'md:text-right' : 'md:text-left'}`}>
-                  <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-[#e6ca85]/20 hover:border-[#e6ca85]/40 transition-all space-y-4 shadow-2xl">
+                  <div className="glass-panel p-5 sm:p-8 rounded-3xl border border-[#e6ca85]/20 hover:border-[#e6ca85]/40 transition-all space-y-4 shadow-2xl">
                     <div
                       className={`flex items-center gap-3 text-xs font-mono text-[#e6ca85] ${
                         isEven ? 'md:justify-end' : 'md:justify-start'
@@ -112,7 +112,7 @@ export default function StoryPage() {
                       {event.subtitle}
                     </p>
 
-                    <p className="font-sans-body text-stone-300 text-sm leading-relaxed">
+                    <p className="font-sans-body text-stone-300 text-xs sm:text-sm leading-relaxed">
                       {event.description}
                     </p>
 
@@ -131,8 +131,8 @@ export default function StoryPage() {
                   </div>
                 </div>
 
-                {/* Central Node Badge */}
-                <div className="relative z-20 flex-shrink-0 w-12 h-12 rounded-full bg-[#120e1e] border-2 border-[#e6ca85] flex items-center justify-center shadow-[0_0_20px_#e6ca85]">
+                {/* Central Node Badge (Desktop only) */}
+                <div className="relative z-20 flex-shrink-0 w-12 h-12 rounded-full bg-[#120e1e] border-2 border-[#e6ca85] flex items-center justify-center shadow-[0_0_20px_#e6ca85] hidden md:flex">
                   <Heart className="w-5 h-5 text-[#df95a6] fill-current" />
                 </div>
 

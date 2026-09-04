@@ -31,15 +31,15 @@ export default function ReasonsPage() {
           </div>
 
           <div className="flex items-center justify-center gap-4">
-            <span className="font-serif-display text-7xl sm:text-9xl font-extrabold text-gold-gradient tracking-tight">
+            <span className="font-serif-display text-6xl sm:text-9xl font-extrabold text-gold-gradient tracking-tight">
               {displayCount}+
             </span>
           </div>
 
-          <h1 className="font-serif-display text-4xl sm:text-5xl font-bold text-stone-100">
+          <h1 className="font-serif-display text-3xl sm:text-5xl font-bold text-stone-100">
             Reasons Why I Love You
           </h1>
-          <p className="font-serif-display text-xl text-stone-300 italic">
+          <p className="font-serif-display text-base sm:text-xl text-stone-300 italic">
             Though a hundred cards cannot contain a fraction of how much you mean to me.
           </p>
         </div>

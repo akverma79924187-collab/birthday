@@ -22,15 +22,15 @@ export default function MemoriesPage() {
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-between">
       <div>
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#120e1e] border border-[#e6ca85]/30 text-xs font-mono text-[#e6ca85] uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Interactive Photo & Video Gallery</span>
           </div>
-          <h1 className="font-serif-display text-5xl sm:text-7xl font-bold text-gold-gradient">
+          <h1 className="font-serif-display text-4xl sm:text-7xl font-bold text-gold-gradient">
             Treasured Memories
           </h1>
-          <p className="font-serif-display text-xl text-stone-300 italic">
+          <p className="font-serif-display text-base sm:text-xl text-stone-300 italic">
             Snapshots and live motion moments captured forever in time.
           </p>
 
@@ -147,7 +147,7 @@ export default function MemoriesPage() {
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.9, y: 20 }}
                 onClick={(e) => e.stopPropagation()}
-                className="relative max-w-4xl w-full glass-panel rounded-3xl overflow-hidden border border-[#e6ca85]/40 grid grid-cols-1 md:grid-cols-2 shadow-2xl"
+                className="relative max-w-4xl w-full glass-panel rounded-3xl overflow-hidden border border-[#e6ca85]/40 grid grid-cols-1 md:grid-cols-2 shadow-2xl max-h-[85vh] overflow-y-auto"
               >
                 {/* Close Button */}
                 <button
@@ -158,7 +158,7 @@ export default function MemoriesPage() {
                 </button>
 
                 {/* Left High Res Image or Video Player */}
-                <div className="relative h-72 sm:h-96 md:h-full min-h-[300px] bg-black">
+                <div className="relative h-64 sm:h-96 md:h-full min-h-[250px] sm:min-h-[300px] bg-black">
                   {activeMemory.isVideo && activeMemory.videoUrl ? (
                     <video
                       src={activeMemory.videoUrl}
@@ -177,7 +177,7 @@ export default function MemoriesPage() {
                 </div>
 
                 {/* Right Details */}
-                <div className="p-8 sm:p-10 flex flex-col justify-between space-y-6">
+                <div className="p-5 sm:p-10 flex flex-col justify-between space-y-4 sm:space-y-6">
                   <div className="space-y-4">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e6ca85]/10 border border-[#e6ca85]/30 text-xs font-mono text-[#e6ca85]">
                       <span>{activeMemory.category}</span>

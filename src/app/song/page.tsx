@@ -24,20 +24,20 @@ export default function SongPage() {
             <Sparkles className="w-3.5 h-3.5" />
             <span>Our Dedicated Track</span>
           </div>
-          <h1 className="font-serif-display text-5xl sm:text-7xl font-bold text-gold-gradient">
+          <h1 className="font-serif-display text-4xl sm:text-7xl font-bold text-gold-gradient">
             Our Soundtrack
           </h1>
-          <p className="font-serif-display text-xl text-stone-300 italic">
+          <p className="font-serif-display text-base sm:text-xl text-stone-300 italic">
             The song that will forever remind me of you.
           </p>
         </div>
 
         {/* Music Experience Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left: Spinning Vinyl Player & Controls */}
-          <div className="glass-panel rounded-3xl p-8 sm:p-10 border border-[#e6ca85]/30 flex flex-col items-center gap-8 shadow-2xl text-center">
+          <div className="glass-panel rounded-3xl p-5 sm:p-10 border border-[#e6ca85]/30 flex flex-col items-center gap-6 sm:gap-8 shadow-2xl text-center">
             {/* Vinyl Record */}
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
+            <div className="relative w-52 h-52 sm:w-72 sm:h-72 flex items-center justify-center">
               {/* Glowing ring */}
               <div className="absolute inset-0 rounded-full bg-radial from-[#e6ca85]/20 via-[#df95a6]/10 to-transparent blur-xl" />
 

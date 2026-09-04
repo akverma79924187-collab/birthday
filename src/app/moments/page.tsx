@@ -16,10 +16,10 @@ export default function MomentsPage() {
             <Sparkles className="w-3.5 h-3.5" />
             <span>The Micro-Details</span>
           </div>
-          <h1 className="font-serif-display text-5xl sm:text-7xl font-bold text-gold-gradient">
+          <h1 className="font-serif-display text-4xl sm:text-7xl font-bold text-gold-gradient">
             Little Things I Love About You
           </h1>
-          <p className="font-serif-display text-xl text-stone-300 italic">
+          <p className="font-serif-display text-base sm:text-xl text-stone-300 italic">
             It&apos;s the quiet, unscripted moments that make you completely unforgettable.
           </p>
         </div>

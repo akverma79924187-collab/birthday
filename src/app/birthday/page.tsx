@@ -12,9 +12,9 @@ export default function BirthdayPage() {
   const [wishMade, setWishMade] = useState(false);
 
   return (
-    <div className="relative min-h-screen py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center overflow-hidden">
       {/* Floating Background Accent Memory Photos */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-30">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-30 hidden md:block">
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 3, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
@@ -43,13 +43,13 @@ export default function BirthdayPage() {
       </div>
 
       {/* Hero Heading Section */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto space-y-6">
+      <div className="relative z-10 text-center max-w-4xl mx-auto space-y-4 sm:space-y-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#120e1e] border border-[#e6ca85]/30 text-xs font-mono text-[#e6ca85] uppercase tracking-widest"
+          className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#120e1e] border border-[#e6ca85]/30 text-[10px] sm:text-xs font-mono text-[#e6ca85] uppercase tracking-widest"
         >
-          <Star className="w-3.5 h-3.5 fill-[#e6ca85] text-[#e6ca85]" />
+          <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#e6ca85] text-[#e6ca85]" />
           <span>The Grand Day Has Arrived</span>
         </motion.div>
 
@@ -57,7 +57,7 @@ export default function BirthdayPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="font-serif-display text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight text-gold-gradient leading-none"
+          className="font-serif-display text-4xl sm:text-7xl md:text-8xl font-extrabold tracking-tight text-gold-gradient leading-tight sm:leading-none"
         >
           HAPPY BIRTHDAY, <br className="hidden sm:inline" />
           <span className="text-rose-gradient">{BIRTHDAY_DATA.herName.toUpperCase()}</span>
@@ -67,7 +67,7 @@ export default function BirthdayPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="font-serif-display text-xl sm:text-2xl text-stone-300 italic max-w-2xl mx-auto"
+          className="font-serif-display text-base sm:text-2xl text-stone-300 italic max-w-2xl mx-auto px-2"
         >
           {BIRTHDAY_DATA.heroSubheading}
         </motion.p>

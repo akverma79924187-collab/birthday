@@ -85,12 +85,14 @@
 .text-gold-gradient {
   background: linear-gradient(135deg, #fff2d1 0%, #e6ca85 50%, #c49a45 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-rose-gradient {
   background: linear-gradient(135deg, #ffffff 0%, #f3c2cd 50%, #df95a6 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

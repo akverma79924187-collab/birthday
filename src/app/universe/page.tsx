@@ -31,16 +31,16 @@ export default function UniversePage() {
             <Globe className="w-3.5 h-3.5" />
             <span>Multiverse Constellations</span>
           </div>
-          <h1 className="font-serif-display text-5xl sm:text-7xl font-bold text-gold-gradient">
+          <h1 className="font-serif-display text-4xl sm:text-7xl font-bold text-gold-gradient">
             Our Interactive 3D Universe
           </h1>
-          <p className="font-serif-display text-xl text-stone-300 italic">
+          <p className="font-serif-display text-base sm:text-xl text-stone-300 italic">
             Out of billions of stars and infinite galaxy timelines...
           </p>
         </div>
 
         {/* 3D R3F Starfield canvas */}
-        <div className="w-full my-8">
+        <div className="w-full my-6 sm:my-8">
           <StarField3D />
         </div>
 
@@ -49,10 +49,10 @@ export default function UniversePage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-panel rounded-3xl p-8 sm:p-10 border border-[#e6ca85]/40 text-center max-w-2xl mx-auto space-y-4 shadow-2xl mt-8"
+          className="glass-panel rounded-3xl p-5 sm:p-10 border border-[#e6ca85]/40 text-center max-w-2xl mx-auto space-y-4 shadow-2xl mt-6 sm:mt-8"
         >
-          <Heart className="w-8 h-8 text-[#df95a6] fill-current mx-auto animate-bounce" />
-          <h2 className="font-serif-display text-3xl sm:text-4xl font-bold text-gold-gradient">
+          <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-[#df95a6] fill-current mx-auto animate-bounce" />
+          <h2 className="font-serif-display text-2xl sm:text-4xl font-bold text-gold-gradient">
             &ldquo;In every universe, I&apos;d choose you.&rdquo;
           </h2>
           <p className="font-sans-body text-xs sm:text-sm text-stone-300">

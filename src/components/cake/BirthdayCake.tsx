@@ -47,14 +47,14 @@ export default function BirthdayCake({ onBlownOut }: BirthdayCakeProps) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-8">
+    <div className="flex flex-col items-center justify-center py-4 sm:py-8 px-2">
       {/* Interactive Birthday Cake Container */}
-      <div className="relative w-72 sm:w-80 h-72 sm:h-80 flex flex-col items-center justify-end">
+      <div className="relative w-64 sm:w-80 h-64 sm:h-80 flex flex-col items-center justify-end max-w-full">
         {/* Ambient Glow behind cake */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-radial from-[#e6ca85]/20 via-[#df95a6]/10 to-transparent rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 sm:w-64 h-48 sm:h-64 bg-radial from-[#e6ca85]/20 via-[#df95a6]/10 to-transparent rounded-full blur-2xl pointer-events-none" />
 
         {/* Cake Candles (3 Flickering Flames) */}
-        <div className="relative z-20 flex gap-6 sm:gap-8 mb-[-12px]">
+        <div className="relative z-20 flex gap-4 sm:gap-8 mb-[-12px]">
           {[1, 2, 3].map((candleIndex) => (
             <div key={candleIndex} className="relative flex flex-col items-center">
               {/* Flame */}
@@ -72,9 +72,9 @@ export default function BirthdayCake({ onBlownOut }: BirthdayCakeProps) {
                     className="cursor-pointer group focus:outline-none mb-1"
                     title="Click or tap to blow out candles!"
                   >
-                    <div className="relative w-6 h-8 flex items-center justify-center">
-                      <Flame className="w-6 h-8 text-[#f3c87a] fill-[#f3c87a] drop-shadow-[0_0_12px_#f3c87a] group-hover:scale-125 transition-transform" />
-                      <span className="absolute top-0 w-2 h-2 rounded-full bg-white blur-[1px]" />
+                    <div className="relative w-5 h-7 sm:w-6 sm:h-8 flex items-center justify-center">
+                      <Flame className="w-5 h-7 sm:w-6 sm:h-8 text-[#f3c87a] fill-[#f3c87a] drop-shadow-[0_0_12px_#f3c87a] group-hover:scale-125 transition-transform" />
+                      <span className="absolute top-0 w-1.5 h-1.5 rounded-full bg-white blur-[1px]" />
                     </div>
                   </motion.button>
                 )}
@@ -91,34 +91,34 @@ export default function BirthdayCake({ onBlownOut }: BirthdayCakeProps) {
               )}
 
               {/* Candle Body */}
-              <div className="w-3.5 h-16 sm:h-20 rounded-t-sm bg-gradient-to-b from-[#f6f3eb] via-[#e6ca85] to-[#df95a6] shadow-md border border-white/20" />
+              <div className="w-3 sm:w-3.5 h-14 sm:h-20 rounded-t-sm bg-gradient-to-b from-[#f6f3eb] via-[#e6ca85] to-[#df95a6] shadow-md border border-white/20" />
             </div>
           ))}
         </div>
 
         {/* Top Cake Tier */}
-        <div className="relative z-10 w-48 sm:w-56 h-20 rounded-t-3xl bg-gradient-to-r from-[#201833] via-[#32244c] to-[#201833] border border-[#e6ca85]/40 flex items-center justify-center shadow-2xl">
-          <div className="absolute top-0 inset-x-0 h-4 bg-gradient-to-r from-[#df95a6] via-[#e6ca85] to-[#df95a6] rounded-t-3xl opacity-80" />
-          <span className="font-serif-display text-sm tracking-widest text-[#e6ca85]">
+        <div className="relative z-10 w-40 sm:w-56 h-16 sm:h-20 rounded-t-3xl bg-gradient-to-r from-[#201833] via-[#32244c] to-[#201833] border border-[#e6ca85]/40 flex items-center justify-center shadow-2xl px-2">
+          <div className="absolute top-0 inset-x-0 h-3 sm:h-4 bg-gradient-to-r from-[#df95a6] via-[#e6ca85] to-[#df95a6] rounded-t-3xl opacity-80" />
+          <span className="font-serif-display text-xs sm:text-sm tracking-widest text-[#e6ca85] text-center truncate">
             {BIRTHDAY_DATA.herName.toUpperCase()} &bull; {BIRTHDAY_DATA.ageYears}
           </span>
         </div>
 
         {/* Bottom Cake Tier */}
-        <div className="relative w-64 sm:w-72 h-24 rounded-t-3xl bg-gradient-to-r from-[#171226] via-[#281d3d] to-[#171226] border border-[#e6ca85]/30 flex items-center justify-center shadow-2xl">
+        <div className="relative w-56 sm:w-72 h-20 sm:h-24 rounded-t-3xl bg-gradient-to-r from-[#171226] via-[#281d3d] to-[#171226] border border-[#e6ca85]/30 flex items-center justify-center shadow-2xl">
           {/* Frosting drips */}
-          <div className="absolute top-0 inset-x-0 h-5 bg-gradient-to-r from-[#e6ca85]/40 via-[#df95a6]/40 to-[#e6ca85]/40 rounded-t-3xl" />
-          <div className="flex gap-2">
-            <Sparkles className="w-4 h-4 text-[#e6ca85]" />
-            <span className="font-serif-display text-xs tracking-wider text-stone-300">
+          <div className="absolute top-0 inset-x-0 h-4 sm:h-5 bg-gradient-to-r from-[#e6ca85]/40 via-[#df95a6]/40 to-[#e6ca85]/40 rounded-t-3xl" />
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#e6ca85]" />
+            <span className="font-serif-display text-[10px] sm:text-xs tracking-wider text-stone-300">
               WITH ALL MY LOVE
             </span>
-            <Sparkles className="w-4 h-4 text-[#e6ca85]" />
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#e6ca85]" />
           </div>
         </div>
 
         {/* Cake Stand Base */}
-        <div className="w-72 sm:w-80 h-5 rounded-full bg-gradient-to-r from-[#e6ca85]/30 via-white/20 to-[#e6ca85]/30 border border-[#e6ca85]/50 shadow-2xl" />
+        <div className="w-64 sm:w-80 h-4 sm:h-5 rounded-full bg-gradient-to-r from-[#e6ca85]/30 via-white/20 to-[#e6ca85]/30 border border-[#e6ca85]/50 shadow-2xl" />
       </div>
 
       {/* Extinguish Trigger Button */}
