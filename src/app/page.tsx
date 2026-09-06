@@ -16,6 +16,8 @@ const HOME_GALLERY = [
   { src: 'IMG_0924.JPG', title: 'A New Memory' },
   { src: 'IMG_2705.JPG', title: 'Little Joys' },
   { src: 'JXSJ6524.JPG', title: 'Just Us' },
+  { src: 'screen.jpeg', title: 'A Message To Remember' },
+  { src: 'screenshot.PNG', title: 'A Memory In Words' },
 ];
 
 export default function EntrancePage() {
