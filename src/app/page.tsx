@@ -3,11 +3,20 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Sparkles, Heart, ArrowRight, Mail, Gift } from 'lucide-react';
 import MagneticButton from '@/components/ui/MagneticButton';
 import { useAudio } from '@/components/ui/AudioProvider';
 import { BIRTHDAY_DATA } from '@/data/content';
+
+const HOME_GALLERY = [
+  { src: 'BLZJ8437.JPG', title: 'Golden Hour' },
+  { src: 'IGPP7937.JPG', title: 'Soft Smiles' },
+  { src: 'IMG_0924.JPG', title: 'A New Memory' },
+  { src: 'IMG_2705.JPG', title: 'Little Joys' },
+  { src: 'JXSJ6524.JPG', title: 'Just Us' },
+];
 
 export default function EntrancePage() {
   const router = useRouter();
@@ -216,6 +225,52 @@ export default function EntrancePage() {
             </span>
           </MagneticButton>
         </motion.div>
+
+        <motion.section
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.25, duration: 0.8 }}
+          className="relative z-10 mt-20 w-full max-w-6xl px-1 pb-16 sm:mt-28"
+        >
+          <div className="mb-8 flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+            <div>
+              <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.3em] text-[#e6ca85]">A Few Favorite Frames</p>
+              <h2 className="font-serif-display text-4xl font-bold text-gold-gradient sm:text-5xl">Our Gallery</h2>
+              <p className="mt-2 font-serif-display text-base italic text-stone-400 sm:text-lg">
+                Every picture keeps a little piece of us alive.
+              </p>
+            </div>
+            <Link
+              href="/memories"
+              className="group inline-flex items-center gap-2 rounded-full border border-[#e6ca85]/50 bg-[#e6ca85]/10 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#e6ca85] transition-all hover:-translate-y-1 hover:bg-[#e6ca85]/20"
+            >
+              <span>View Full Gallery</span>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-5">
+            {HOME_GALLERY.map((item, index) => (
+              <Link
+                key={item.src}
+                href="/memories"
+                className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-[#11101a] shadow-xl ${index === 0 ? 'row-span-2 aspect-[3/4] sm:aspect-auto' : 'aspect-square'}`}
+              >
+                <Image
+                  src={`/image/${item.src}`}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 640px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-3 text-xs font-medium text-white sm:bottom-4 sm:left-4 sm:text-sm">
+                  {item.title}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </motion.section>
       </motion.div>
 
       {/* Cinematic Fade Overlay on Transition */}
