@@ -1,228 +1,192 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, MapPin, Calendar, X, Maximize2, Heart, ArrowRight, Video, Play } from 'lucide-react';
-import { BIRTHDAY_DATA, Memory } from '@/data/content';
+import Image from 'next/image';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowRight, Film, Heart, Image as ImageIcon, Maximize2, Play, X } from 'lucide-react';
 
-const CATEGORIES = ['All', 'Travel', 'Dates', 'Cozy', 'Celebrations'] as const;
+type GalleryKind = 'image' | 'video';
+
+interface GalleryItem {
+  src: string;
+  title: string;
+  kind: GalleryKind;
+}
+
+const GALLERY_ITEMS: GalleryItem[] = [
+  { src: 'AZHM6319.MOV', title: 'A Moving Memory', kind: 'video' },
+  { src: 'BLZJ8437.JPG', title: 'Golden Hour', kind: 'image' },
+  { src: 'DZYA6663.MP4', title: 'A Little Moment', kind: 'video' },
+  { src: 'IGPP7937.JPG', title: 'Soft Smiles', kind: 'image' },
+  { src: 'IMG_0927.JPG', title: 'A Beautiful Day', kind: 'image' },
+  { src: 'IMG_2705.JPG', title: 'Little Joys', kind: 'image' },
+  { src: 'IMG_5681.JPG', title: 'A Familiar Smile', kind: 'image' },
+  { src: 'IMG_5910.JPG', title: 'Our Kind Of Happy', kind: 'image' },
+  { src: 'IMG_5911.JPG', title: 'Golden Memories', kind: 'image' },
+  { src: 'IMG_7350.JPG', title: 'Cozy Together', kind: 'image' },
+  { src: 'IMG_E0927.JPG', title: 'A Precious Frame', kind: 'image' },
+  { src: 'JBIR1312.JPG', title: 'Candlelit Evenings', kind: 'image' },
+  { src: 'JXSJ6524.JPG', title: 'Just Us', kind: 'image' },
+  { src: 'KJUD8091.MP4', title: 'Our Living Memory', kind: 'video' },
+  { src: 'MGND6741.JPG', title: 'A Favorite View', kind: 'image' },
+  { src: 'RFXM5866.JPG', title: 'Home With You', kind: 'image' },
+  { src: 'SJDM3997.JPG', title: 'Pure Laughter', kind: 'image' },
+  { src: 'SKNW2415.MOV', title: 'A Moment In Motion', kind: 'video' },
+  { src: 'SQHQ9408.JPG', title: 'Sunlit Memories', kind: 'image' },
+  { src: 'TDDG3495.JPG', title: 'A Sweet Memory', kind: 'image' },
+  { src: 'UXLE1443.JPG', title: 'Roads We Remember', kind: 'image' },
+  { src: 'VQBY5511.JPG', title: 'A Lovely Day', kind: 'image' },
+  { src: 'WIXR7472.JPG', title: 'Always Us', kind: 'image' },
+  { src: 'WURB1366.JPG', title: 'Our Soft Place', kind: 'image' },
+  { src: 'XUAG0165.JPG', title: 'Forever Framed', kind: 'image' },
+];
+
+const FILTERS = [
+  { label: 'All', value: 'all' },
+  { label: 'Photos', value: 'image' },
+  { label: 'Videos', value: 'video' },
+] as const;
 
 export default function MemoriesPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [activeMemory, setActiveMemory] = useState<Memory | null>(null);
+  const [filter, setFilter] = useState<(typeof FILTERS)[number]['value']>('all');
+  const [activeItem, setActiveItem] = useState<GalleryItem | null>(null);
 
-  const filteredMemories =
-    selectedCategory === 'All'
-      ? BIRTHDAY_DATA.memories
-      : BIRTHDAY_DATA.memories.filter((m) => m.category === selectedCategory);
+  const visibleItems = filter === 'all' ? GALLERY_ITEMS : GALLERY_ITEMS.filter((item) => item.kind === filter);
 
   return (
-    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-between">
-      <div>
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#120e1e] border border-[#e6ca85]/30 text-xs font-mono text-[#e6ca85] uppercase tracking-widest">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Interactive Photo & Video Gallery</span>
+    <div className="min-h-screen px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <header className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#e6ca85]/30 bg-[#120e1e] px-4 py-1.5 text-xs font-mono uppercase tracking-widest text-[#e6ca85]">
+            <Heart className="h-3.5 w-3.5 text-[#df95a6]" />
+            <span>Our Photo & Video Gallery</span>
           </div>
-          <h1 className="font-serif-display text-4xl sm:text-7xl font-bold text-gold-gradient">
-            Treasured Memories
-          </h1>
-          <p className="font-serif-display text-base sm:text-xl text-stone-300 italic">
-            Snapshots and live motion moments captured forever in time.
+          <h1 className="font-serif-display text-5xl font-bold text-gold-gradient sm:text-7xl">Our Gallery</h1>
+          <p className="mt-4 font-serif-display text-base italic leading-relaxed text-stone-300 sm:text-xl">
+            Every frame holds a little piece of us.
           </p>
 
-          {/* Category Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 pt-4">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all ${
-                  selectedCategory === cat
-                    ? 'bg-[#e6ca85] text-[#07060a] shadow-[0_0_20px_rgba(230,202,133,0.4)]'
-                    : 'bg-[#141022] text-stone-300 border border-white/10 hover:border-[#e6ca85]/40'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className="mt-8 flex flex-wrap justify-center gap-2">
+            {FILTERS.map((item) => {
+              const isActive = filter === item.value;
+              return (
+                <button
+                  key={item.value}
+                  type="button"
+                  onClick={() => setFilter(item.value)}
+                  className={`inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all ${
+                    isActive
+                      ? 'border-[#e6ca85] bg-[#e6ca85] text-[#07060a] shadow-[0_0_20px_rgba(230,202,133,0.35)]'
+                      : 'border-white/10 bg-[#141022] text-stone-300 hover:border-[#e6ca85]/50 hover:text-[#e6ca85]'
+                  }`}
+                >
+                  {item.value === 'video' ? <Film className="h-3.5 w-3.5" /> : <ImageIcon className="h-3.5 w-3.5" />}
+                  {item.label}
+                </button>
+              );
+            })}
           </div>
-        </div>
+        </header>
 
-        {/* Masonry Editorial Photo & Video Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-        >
-          <AnimatePresence>
-            {filteredMemories.map((mem) => (
-              <motion.div
-                key={mem.id}
+        <motion.div layout className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <AnimatePresence mode="popLayout">
+            {visibleItems.map((item, index) => (
+              <motion.button
+                key={item.src}
+                type="button"
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.5 }}
-                whileHover={{ y: -8 }}
-                onClick={() => setActiveMemory(mem)}
-                className="group cursor-pointer glass-card rounded-3xl overflow-hidden border border-white/10 hover:border-[#e6ca85]/50 flex flex-col shadow-2xl"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.94 }}
+                transition={{ delay: Math.min(index * 0.035, 0.35) }}
+                onClick={() => setActiveItem(item)}
+                className="group overflow-hidden rounded-2xl border border-white/10 bg-[#11101a] text-left shadow-xl transition-all hover:-translate-y-1 hover:border-[#e6ca85]/60 hover:shadow-[0_18px_45px_rgba(0,0,0,0.45)]"
               >
-                {/* Media Container */}
-                <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-black">
-                  {mem.isVideo && mem.videoUrl ? (
-                    <div className="relative w-full h-full">
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#08070c] p-2">
+                  <div className="relative h-full w-full overflow-hidden rounded-xl bg-black/40">
+                    {item.kind === 'video' ? (
                       <video
-                        src={mem.videoUrl}
-                        autoPlay
-                        loop
+                        src={`/image/${item.src}`}
                         muted
+                        loop
                         playsInline
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        autoPlay
+                        className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#df95a6]/80 text-white font-mono text-[10px] uppercase tracking-wider backdrop-blur-md">
-                        <Video className="w-3 h-3" />
-                        <span>Live Video</span>
-                      </div>
-                    </div>
-                  ) : (
-                    <Image
-                      src={mem.image}
-                      alt={mem.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700 filter saturate-110"
-                    />
-                  )}
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#07060a] via-transparent to-transparent opacity-75 group-hover:opacity-40 transition-opacity" />
-
-                  {/* Expand badge */}
-                  <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Maximize2 className="w-4 h-4 text-[#e6ca85]" />
-                  </div>
-
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-[#e6ca85]">
-                    <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#e6ca85]/30">
-                      {mem.category}
+                    ) : (
+                      <Image
+                        src={`/image/${item.src}`}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-contain transition-transform duration-700 group-hover:scale-105"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/55 px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-md">
+                      {item.kind === 'video' ? <Play className="h-3 w-3 fill-current text-[#df95a6]" /> : <ImageIcon className="h-3 w-3 text-[#e6ca85]" />}
+                      {item.kind === 'video' ? 'Video' : 'Photo'}
                     </span>
-                    <span className="flex items-center gap-1 text-stone-300">
-                      <Calendar className="w-3.5 h-3.5 text-[#e6ca85]" />
-                      {mem.date}
-                    </span>
+                    <Maximize2 className="absolute bottom-3 right-3 h-4 w-4 text-[#e6ca85] opacity-0 transition-opacity group-hover:opacity-100" />
                   </div>
                 </div>
-
-                {/* Card Info */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
-                  <h3 className="font-serif-display text-xl font-bold text-gold-gradient group-hover:text-[#df95a6] transition-colors">
-                    {mem.title}
-                  </h3>
-                  <p className="font-sans-body text-xs text-stone-300 line-clamp-2">
-                    {mem.caption}
-                  </p>
-                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-stone-400">
-                    <MapPin className="w-3 h-3 text-[#e6ca85]" />
-                    <span>{mem.location}</span>
-                  </div>
-                </div>
-              </motion.div>
+              </motion.button>
             ))}
           </AnimatePresence>
         </motion.div>
 
-        {/* Fullscreen Lightbox Modal */}
         <AnimatePresence>
-          {activeMemory && (
+          {activeItem && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setActiveMemory(null)}
-              className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl p-4 sm:p-8 flex items-center justify-center overflow-y-auto"
+              onClick={() => setActiveItem(null)}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-xl sm:p-8"
             >
               <motion.div
-                initial={{ scale: 0.9, y: 20 }}
-                animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.9, y: 20 }}
-                onClick={(e) => e.stopPropagation()}
-                className="relative max-w-4xl w-full glass-panel rounded-3xl overflow-hidden border border-[#e6ca85]/40 grid grid-cols-1 md:grid-cols-2 shadow-2xl max-h-[85vh] overflow-y-auto"
+                initial={{ opacity: 0, scale: 0.94 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.94 }}
+                onClick={(event) => event.stopPropagation()}
+                className="relative w-full max-w-5xl overflow-hidden rounded-2xl border border-[#e6ca85]/40 bg-[#0c0a12] p-2 shadow-2xl"
               >
-                {/* Close Button */}
                 <button
-                  onClick={() => setActiveMemory(null)}
-                  className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/70 text-white hover:text-[#e6ca85] transition-colors"
+                  type="button"
+                  onClick={() => setActiveItem(null)}
+                  aria-label="Close gallery preview"
+                  className="absolute right-5 top-5 z-10 rounded-full border border-white/20 bg-black/70 p-2 text-white transition-colors hover:text-[#e6ca85]"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="h-5 w-5" />
                 </button>
-
-                {/* Left High Res Image or Video Player */}
-                <div className="relative h-64 sm:h-96 md:h-full min-h-[250px] sm:min-h-[300px] bg-black">
-                  {activeMemory.isVideo && activeMemory.videoUrl ? (
-                    <video
-                      src={activeMemory.videoUrl}
-                      controls
-                      autoPlay
-                      className="w-full h-full object-contain"
-                    />
+                <div className="relative flex max-h-[82vh] min-h-[50vh] items-center justify-center overflow-hidden rounded-xl bg-black">
+                  {activeItem.kind === 'video' ? (
+                    <video src={`/image/${activeItem.src}`} controls autoPlay playsInline className="max-h-[82vh] w-full object-contain" />
                   ) : (
                     <Image
-                      src={activeMemory.image}
-                      alt={activeMemory.title}
-                      fill
-                      className="object-cover"
+                      src={`/image/${activeItem.src}`}
+                      alt={activeItem.title}
+                      width={1600}
+                      height={1200}
+                      className="max-h-[82vh] w-full object-contain"
                     />
                   )}
-                </div>
-
-                {/* Right Details */}
-                <div className="p-5 sm:p-10 flex flex-col justify-between space-y-4 sm:space-y-6">
-                  <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e6ca85]/10 border border-[#e6ca85]/30 text-xs font-mono text-[#e6ca85]">
-                      <span>{activeMemory.category}</span>
-                      <span>&bull;</span>
-                      <span>{activeMemory.date}</span>
-                    </div>
-
-                    <h2 className="font-serif-display text-3xl font-bold text-gold-gradient">
-                      {activeMemory.title}
-                    </h2>
-
-                    <p className="font-sans-body text-stone-200 text-sm leading-relaxed">
-                      {activeMemory.caption}
-                    </p>
-
-                    {activeMemory.quote && (
-                      <div className="p-4 rounded-2xl bg-[#161224] border border-[#df95a6]/30 flex items-start gap-3">
-                        <Heart className="w-5 h-5 text-[#df95a6] flex-shrink-0 mt-0.5" />
-                        <p className="font-serif-display text-sm text-[#df95a6] italic">
-                          &ldquo;{activeMemory.quote}&rdquo;
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="flex items-center gap-2 text-xs font-mono text-stone-400 border-t border-white/10 pt-4">
-                    <MapPin className="w-4 h-4 text-[#e6ca85]" />
-                    <span>{activeMemory.location}</span>
-                  </div>
                 </div>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
 
-      {/* Next CTA */}
-      <div className="mt-16 text-center">
-        <Link
-          href="/moments"
-          className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#e6ca85] to-[#df95a6] text-[#07060a] font-bold text-xs uppercase tracking-widest hover:scale-105 transition-all shadow-xl"
-        >
-          <span>Discover Little Things I Love</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
+        <div className="mt-14 text-center">
+          <Link
+            href="/moments"
+            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#e6ca85] to-[#df95a6] px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-[#07060a] shadow-xl transition-transform hover:scale-105"
+          >
+            <span>Discover Little Things I Love</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
     </div>
   );

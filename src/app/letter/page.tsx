@@ -64,12 +64,6 @@ export default function LetterPage() {
                 transition={{ duration: 0.8, ease: 'easeOut' }}
                 className="relative w-full glass-panel rounded-3xl p-5 sm:p-14 border border-[#e6ca85]/40 shadow-2xl bg-gradient-to-b from-[#141022] via-[#1a152b] to-[#141022] space-y-6 sm:space-y-8"
               >
-                {/* Ambient stamp icon */}
-                <div className="absolute top-8 right-8 w-14 h-16 rounded-lg border-2 border-dashed border-[#e6ca85]/40 flex flex-col items-center justify-center p-2 text-[10px] font-mono text-[#e6ca85]">
-                  <Sparkles className="w-4 h-4 text-[#df95a6]" />
-                  <span>PARIS</span>
-                </div>
-
                 {/* Salutation */}
                 <h2 className="font-serif-display text-3xl sm:text-4xl font-bold text-gold-gradient">
                   {BIRTHDAY_DATA.letter.salutation}

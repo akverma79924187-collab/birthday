@@ -1,10 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Sparkles, Heart, Gift, ArrowRight, Star } from 'lucide-react';
+import { Heart, ArrowRight, Star } from 'lucide-react';
 import BirthdayCake from '@/components/cake/BirthdayCake';
 import { BIRTHDAY_DATA } from '@/data/content';
 
@@ -13,35 +12,6 @@ export default function BirthdayPage() {
 
   return (
     <div className="relative min-h-screen py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center overflow-hidden">
-      {/* Floating Background Accent Memory Photos */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-30 hidden md:block">
-        <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, 3, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-12 left-4 md:left-16 w-36 sm:w-48 h-48 sm:h-60 rounded-2xl overflow-hidden border border-[#e6ca85]/30 shadow-2xl"
-        >
-          <Image
-            src={BIRTHDAY_DATA.memories[0].image}
-            alt="Memory"
-            fill
-            className="object-cover"
-          />
-        </motion.div>
-
-        <motion.div
-          animate={{ y: [0, 25, 0], rotate: [0, -4, 0] }}
-          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-          className="absolute bottom-16 right-4 md:right-16 w-36 sm:w-48 h-48 sm:h-60 rounded-2xl overflow-hidden border border-[#df95a6]/30 shadow-2xl"
-        >
-          <Image
-            src={BIRTHDAY_DATA.memories[2].image}
-            alt="Memory"
-            fill
-            className="object-cover"
-          />
-        </motion.div>
-      </div>
-
       {/* Hero Heading Section */}
       <div className="relative z-10 text-center max-w-4xl mx-auto space-y-4 sm:space-y-6">
         <motion.div

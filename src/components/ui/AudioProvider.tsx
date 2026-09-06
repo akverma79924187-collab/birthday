@@ -26,8 +26,26 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const audio = new Audio(BIRTHDAY_DATA.soundtrackAudioUrl);
     audio.loop = true;
+    audio.preload = 'auto';
     audio.volume = 0.5;
     audioRef.current = audio;
+
+    const startAudio = () => {
+      if (!audio.paused) return;
+      audio
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {
+          // Browsers may require a user gesture before allowing sound.
+        });
+    };
+
+    startAudio();
+
+    const interactionEvents = ['pointerdown', 'keydown', 'touchstart'];
+    interactionEvents.forEach((eventName) => {
+      window.addEventListener(eventName, startAudio, { once: true, passive: true });
+    });
 
     const handleTimeUpdate = () => {
       setCurrentTime(audio.currentTime);
@@ -41,6 +59,9 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
       audio.pause();
       audio.removeEventListener('timeupdate', handleTimeUpdate);
       audio.removeEventListener('loadedmetadata', handleTimeUpdate);
+      interactionEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, startAudio);
+      });
     };
   }, []);
 
