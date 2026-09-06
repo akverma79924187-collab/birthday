@@ -174,7 +174,7 @@ export default function EntrancePage() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
-          className="pt-1"
+          className="flex flex-wrap items-center justify-center gap-3 pt-1"
         >
           <Link
             href="/surprise"
@@ -182,6 +182,14 @@ export default function EntrancePage() {
           >
             <Gift className="h-4 w-4 transition-transform group-hover:rotate-12" />
             <span>Open Your Surprise</span>
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+          <Link
+            href="/birthday"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#e6ca85]/60 bg-[#e6ca85]/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-[#e6ca85] shadow-[0_0_30px_rgba(230,202,133,0.12)] transition-all hover:-translate-y-1 hover:bg-[#e6ca85]/20 hover:shadow-[0_0_40px_rgba(230,202,133,0.2)]"
+          >
+            <Sparkles className="h-4 w-4 transition-transform group-hover:rotate-12" />
+            <span>Go to Celebration</span>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>

@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { path: '/birthday', label: 'Celebration' },
   { path: '/story', label: 'Story' },
   { path: '/memories', label: 'Our Gallery' },
+  { path: '/reels', label: 'Reels' },
   { path: '/moments', label: 'Moments' },
   { path: '/reasons', label: 'Reasons' },
   { path: '/song', label: 'Song' },

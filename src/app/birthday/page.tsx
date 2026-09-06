@@ -68,7 +68,7 @@ export default function BirthdayPage() {
         </h3>
 
         <p className="font-sans-body text-stone-300 text-sm sm:text-base leading-relaxed">
-          &ldquo;Saloni tum hmesha khush rha kro ab se hm kbhi v tumko disturb krne nhi aayenge jha v ho jaisi v ho hmehsa khush rho hm bhagwan se yhi pray krte hai ki hmesha khush rho or hm tumahra forever hmesha wait krenge ek baar hmse glti hua tha wo glti itna bada tha ki tm hmko chor di lekin koi baat nhi tum khush rho &rdquo;
+          &ldquo;Saloni tum hmesha khush rha kro ab se hm kbhi v tumko disturb krne nhi aayenge jha v ho jaisi v ho hmehsa khush rho hm bhagwan se yhi pray krte hai ki hmesha khush rho or hm tumahra forever hmesha wait krenge ek baar hmse glti hua tha wo glti itna bada tha ki tm hmko chor di lekin koi baat nhi tum khush rho . Klh jayenge mandir saloni tumko bhagwan se mangne hm bahut bhagwan se tmko mange hai har ek jgh jha jha gye hai ab fr se klh jayenge hanuman mandir tumahra dil itna pathar ka kaise ho gya saloni mere liye kitni masum thi ek baar glti ho gya yaar maaf kr do na please friend hi rhte hai yaar mn nhi lgta hai tumahre bina Saloni please last baar bol rhe hai wapas aa jao na meri jaan Happy Birthday to my Queen. &rdquo;
         </p>
 
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
