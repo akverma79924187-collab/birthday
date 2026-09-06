@@ -1,33 +1,28 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { Sparkles, Heart, Gift, Key, Ticket, ArrowRight, Video } from 'lucide-react';
+import { Sparkles, Mail, ArrowRight } from 'lucide-react';
 import { BIRTHDAY_DATA } from '@/data/content';
 
 export default function SurprisePage() {
-  const [countdown, setCountdown] = useState<number | null>(3);
-  const [revealed, setRevealed] = useState(false);
+  const [countdown, setCountdown] = useState(3);
+  const revealed = countdown === 0;
 
   useEffect(() => {
-    if (countdown === null) return;
-
     if (countdown > 0) {
       const timer = setTimeout(() => {
-        setCountdown((prev) => (prev !== null ? prev - 1 : null));
+        setCountdown((prev) => Math.max(prev - 1, 0));
       }, 1000);
       return () => clearTimeout(timer);
     } else if (countdown === 0) {
-      setRevealed(true);
-
       // Trigger Grand Fireworks Shower
       const duration = 5 * 1000;
       const animationEnd = Date.now() + duration;
 
-      const interval: any = setInterval(() => {
+      const interval: ReturnType<typeof setInterval> = setInterval(() => {
         const timeLeft = animationEnd - Date.now();
         if (timeLeft <= 0) {
           return clearInterval(interval);
@@ -76,8 +71,8 @@ export default function SurprisePage() {
             {/* Header */}
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e6ca85]/20 border border-[#e6ca85] text-xs font-mono text-[#e6ca85] uppercase tracking-widest">
-                <Gift className="w-4 h-4 text-[#df95a6]" />
-                <span>The Grand Surprise Unlocked</span>
+                <Mail className="w-4 h-4 text-[#df95a6]" />
+                <span>A Letter For You</span>
               </div>
               <h1 className="font-serif-display text-4xl sm:text-7xl font-extrabold text-gold-gradient">
                 {BIRTHDAY_DATA.surpriseMessage.headline}
@@ -87,62 +82,31 @@ export default function SurprisePage() {
               </p>
             </div>
 
-            {/* Featured Video Memory Section */}
-            <div className="max-w-3xl mx-auto glass-panel rounded-3xl p-3 sm:p-6 border border-[#e6ca85]/40 shadow-2xl space-y-3">
-              <div className="flex items-center justify-between px-2 text-xs font-mono text-[#e6ca85]">
-                <span className="flex items-center gap-1.5">
-                  <Video className="w-4 h-4 text-[#df95a6]" />
-                  <span>Featured Motion Moment</span>
+            {/* Letter Note */}
+            <div className="glass-panel rounded-3xl p-6 sm:p-12 border-2 border-[#e6ca85] max-w-3xl mx-auto space-y-6 sm:space-y-8 shadow-[0_0_80px_rgba(230,202,133,0.3)] bg-gradient-to-br from-[#1c152e] via-[#2a1d42] to-[#1c152e] relative overflow-hidden">
+              <div className="border-b border-white/10 pb-6 text-left">
+                <span className="font-mono text-xs text-stone-400 block uppercase tracking-widest">
+                  Amit&apos;s Note
                 </span>
-                <span className="text-stone-400">{BIRTHDAY_DATA.herName} & {BIRTHDAY_DATA.hisName}</span>
+                <h2 className="font-serif-display text-2xl sm:text-4xl font-bold text-stone-100 mt-2">
+                  Dear Saloni,
+                </h2>
               </div>
-              <div className="relative w-full h-52 sm:h-96 rounded-2xl overflow-hidden bg-black border border-white/10 shadow-lg">
-                <video
-                  src={BIRTHDAY_DATA.featuredVideo}
-                  controls
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
 
-            {/* Surprise Ticket / VIP Voucher Card */}
-            <div className="glass-panel rounded-3xl p-5 sm:p-12 border-2 border-[#e6ca85] max-w-3xl mx-auto space-y-6 sm:space-y-8 shadow-[0_0_80px_rgba(230,202,133,0.3)] bg-gradient-to-br from-[#1c152e] via-[#2a1d42] to-[#1c152e] relative overflow-hidden">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 border-b border-white/10 pb-6 text-center sm:text-left">
-                <div className="flex flex-col sm:flex-row items-center gap-3">
-                  <Ticket className="w-7 h-7 sm:w-8 sm:h-8 text-[#e6ca85]" />
-                  <div>
-                    <span className="font-mono text-xs text-stone-400 block uppercase">
-                      VIP Birthday Pass
-                    </span>
-                    <span className="font-serif-display text-xl sm:text-2xl font-bold text-stone-100">
-                      Weekend Escape to Paris
-                    </span>
+              <div className="min-h-64 rounded-2xl bg-black/35 border border-[#df95a6]/30 p-5 sm:p-8 text-left">
+                {BIRTHDAY_DATA.surpriseMessage.secretNote ? (
+                  <p className="font-serif-display text-stone-200 text-base sm:text-xl leading-relaxed whitespace-pre-line">
+                    {BIRTHDAY_DATA.surpriseMessage.secretNote}
+                  </p>
+                ) : (
+                  <div className="space-y-6 pt-4">
+                    <div className="h-px bg-[#e6ca85]/25" />
+                    <div className="h-px bg-[#e6ca85]/25" />
+                    <div className="h-px bg-[#e6ca85]/25" />
+                    <div className="h-px bg-[#e6ca85]/25" />
+                    <div className="h-px bg-[#e6ca85]/25" />
                   </div>
-                </div>
-                <div className="px-4 py-2 rounded-xl bg-black/60 border border-[#e6ca85]/40 font-mono text-xs text-[#e6ca85]">
-                  CODE: {BIRTHDAY_DATA.surpriseMessage.giftCardCode}
-                </div>
-              </div>
-
-              {/* Secret Note */}
-              <div className="p-4 sm:p-6 rounded-2xl bg-black/40 border border-[#df95a6]/30 flex items-start gap-3 sm:gap-4 text-left">
-                <Key className="w-5 h-5 sm:w-6 sm:h-6 text-[#df95a6] flex-shrink-0 mt-0.5 sm:mt-1" />
-                <p className="font-serif-display text-stone-200 text-xs sm:text-base leading-relaxed">
-                  &ldquo;{BIRTHDAY_DATA.surpriseMessage.secretNote}&rdquo;
-                </p>
-              </div>
-
-              {/* Floating photos stream */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
-                {BIRTHDAY_DATA.memories.slice(0, 3).map((mem) => (
-                  <div key={mem.id} className="relative h-32 rounded-xl overflow-hidden border border-white/20 shadow-md">
-                    <Image src={mem.image} alt={mem.title} fill className="object-cover" />
-                  </div>
-                ))}
+                )}
               </div>
             </div>
 

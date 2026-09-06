@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Sparkles, Heart, ArrowRight } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 import { BIRTHDAY_DATA } from '@/data/content';
 
 export default function MomentsPage() {
@@ -83,7 +83,7 @@ export default function MomentsPage() {
           href="/reasons"
           className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#e6ca85] to-[#df95a6] text-[#07060a] font-bold text-xs uppercase tracking-widest hover:scale-105 transition-all shadow-xl"
         >
-          <span>Continue to 100+ Reasons Why I Love You</span>
+          <span>Continue to 10 Reasons Why I Love You</span>
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>

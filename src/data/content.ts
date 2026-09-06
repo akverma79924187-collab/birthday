@@ -48,11 +48,6 @@ export interface FutureDream {
   status: 'Planned' | 'Dreaming' | 'Forever';
 }
 
-export interface LyricLine {
-  timeSec: number;
-  text: string;
-}
-
 export const BIRTHDAY_DATA = {
   herName: "Saloni",
   hisName: "Amit",
@@ -72,47 +67,14 @@ export const BIRTHDAY_DATA = {
   story: [
     {
       id: "story-1",
-      year: "2021",
-      date: "October 14, 2021",
+      year: "2023",
+      date: "November  04, 2023",
       title: "The First Instant",
       subtitle: "Where time held its breath",
-      description: "A warm rainy Tuesday evening at the corner cafe. You walked in with a dripping coat, turned to smile at Amit, and suddenly every background noise dissolved into quiet harmony.",
-      location: "San Francisco, CA",
+      description: "First time jb tmko hm dekhe the tb se hi tumse pyar ho gya tha bahut jayda saloni lekin jb tum mil gyi hmko tb se hm tmko bacha ke rkhe or aisa koi glti nhi kiye the jisse tmko hmko chorna pre lekin ek glti hua hmse or hmdono alg ho gye saloni abhi v tumse bahut pyar hai hmko or hm bs tumahra hi wait kr rhe hai kbhi v tmko wapas aana hoga bina kuch soche smjhe hmko msg kr skti ho ab se kbhi hurt nhi krenge saloni or tmko hm kbhi v accept kr lenge kaise v aaogi to hmesha se tumahre hai tumse hi ek hmko pyar hua hai hmko or kisi se v  nhi aaj v tumahraa wait kr rhe hai",
+      
       image: "/image/BLZJ8437.JPG",
       highlight: "The exact second my world changed direction."
-    },
-    {
-      id: "story-2",
-      year: "2022",
-      date: "February 14, 2022",
-      title: "Midnight Under Starlight",
-      subtitle: "Our first escape into the quiet night",
-      description: "We drove out to the coastal cliffs past midnight, wrapped in a giant fleece blanket, listening to vinyl records while ocean waves crashed far below.",
-      location: "Big Sur Coast",
-      image: "/image/IMG_7350.JPG",
-      highlight: "When you whispered that you felt safe in my arms."
-    },
-    {
-      id: "story-3",
-      year: "2023",
-      date: "July 22, 2023",
-      title: "Lost in Florence",
-      subtitle: "Cobblestone alleys & sunlit gelato",
-      description: "Two weeks of getting gloriously lost in Tuscan streets, drinking local red wine on sun-baked rooftops, and sharing endless gelato scoops as twilight lit the Duomo.",
-      location: "Florence, Italy",
-      image: "/image/JBIR1312.JPG",
-      highlight: "Laughing so hard our cheeks hurt under the olive trees."
-    },
-    {
-      id: "story-4",
-      year: "2024",
-      date: "November 03, 2024",
-      title: "Our Quiet Sanctuary",
-      subtitle: "Making a house a sanctuary of love",
-      description: "Moving into our place, unpacking cardboard boxes surrounded by fairy lights, ordering late-night takeaway on the bare wooden floor, knowing home is wherever you are.",
-      location: "Our Home",
-      image: "/image/RFXM5866.JPG",
-      highlight: "First morning coffee served in our sunlit living room."
     },
     {
       id: "story-5",
@@ -256,48 +218,17 @@ export const BIRTHDAY_DATA = {
   ] as Moment[],
 
   reasons: [
-    "Your smile illuminates even the darkest, stormiest days.",
-    "You listen with your whole heart without ever judging.",
-    "The cute dance you do when your favorite food arrives at the table.",
-    "How your eyes sparkle when you get passionate about an idea.",
-    "You hold my hand with gentle certainty wherever we walk.",
-    "Your laugh is my absolute favorite sound in the universe.",
-    "You make mundane grocery trips feel like romantic adventures.",
-    "The way you rest your head on my shoulder during long flights.",
-    "How brave and determined you are when facing challenges.",
-    "You give the warmest, most comforting hugs in the world.",
-    "You make Amit want to become a better man every single day.",
-    "Your endless patience when I misplace my keys for the tenth time.",
-    "How you look in my oversized hoodies on lazy Sunday mornings.",
-    "Your artistic eye for beauty in simple everyday things.",
-    "The gentle way you wake me up with soft kisses.",
-    "How fiercely loyal you are to the people you love.",
-    "You remember the little things that everyone else forgets.",
-    "Because when I'm with Saloni, I am completely, unapologetically myself.",
-    "Your infectious enthusiasm for spontaneous midnight road trips.",
-    "The peace I feel simply resting beside you under quiet skies.",
-    "How your hand fits seamlessly inside mine like two pieces of a puzzle.",
-    "Your elegant grace and effortless warmth in every room you enter.",
-    "You believe in my wildest dreams even when I hesitate.",
-    "Because your love feels like coming home after a long journey.",
-    "How you turn simple home-cooked meals into gourmet celebrations.",
-    "Your hilarious inside jokes that only the two of us understand.",
-    "The soft scent of vanilla and lavender that lingers when you pass.",
-    "How you look at me like I am the only person in the crowded room.",
-    "Your unshakeable integrity and commitment to truth.",
-    "Because loving Saloni is the easiest and most natural thing Amit has ever done."
+    "Saloni tum bahut jayda pyari ho. Jb tumko first time dekhe the usi time hmko tumse bahut jayda pyar ho gya tha.",
+    "Saloni, you remember the little things that everyone else forgets.",
+    "Tum Saloni jitna din mere saath rhi utna din bahut jayda care ki mera. Jb tk tmko mera fikr tha bahut kuch sikhayi hmko.",
+    "Tum Saloni bahut bahut jayda pyari ho.",
+    "I love you forever and forever",
+    "Tum hi hmko pyaar ka mtlb btayi kya hota hai kaise hota hai tumarhe saath rhne ke baad hi hmko pta chla ki pyaar kaisa hota hai kya feel hota hai ",
+    "Tumahre saath rona Tumahre saath hasna Tumaahre saath hm kitna sapna dekhe the bahut kuch dream kiye the sb to ab khtm ho gya hai lekin koi baat nhi hmko bhagwan g pe or mere pyaar pe bharosh hai bahut jayda ki hm tmko apna bna lenge or hm hmesha wait krenge saloni hmesha or hmesha tumahra hi rhenge ",
+    "Hmko sb yaad hai saloni tumahre saaath kaise ye tin saal bitaye the bahut kuch acha v tha hmaare bich jitna acha baat tha wo sbke wjh se hi hmko tumse itna pyaar hai abhi tk or hmesha tumse hi rhega",
+    "Saloni hmko tumahra hasna bahut psnd hai jb tm hsti ho bahut pyari lgti ho bahut jayda pyari ho tumahre saath hmko sbse jayda khushi milti hai or hmesha tumahre saath rhna chahte hai or hmesha tumahre saath hi rhenge saloni",
+    "Tumhare saath har din ek naya kahani bana rahi ho, aur har kahani tumhare saath hi shuru hoti hai."
   ],
-
-  lyrics: [
-    { timeSec: 0, text: "♪ (Gentle acoustic melody plays...)" },
-    { timeSec: 5, text: "I was lost in the dark till the day that I found you," },
-    { timeSec: 12, text: "Like a spark in the night, all my world spun around you." },
-    { timeSec: 19, text: "Every beat of my heart speaks your name in a whisper," },
-    { timeSec: 26, text: "With your hand held in mine, every horizon grows clearer." },
-    { timeSec: 33, text: "In every quiet morning, in every starry night," },
-    { timeSec: 40, text: "You are my endless sanctuary, my golden light." },
-    { timeSec: 48, text: "Happy Birthday, Saloni, now and for all time. ♪" }
-  ] as LyricLine[],
 
   letter: {
     salutation: "To My Dearest Saloni,",
@@ -361,9 +292,8 @@ export const BIRTHDAY_DATA = {
   ] as FutureDream[],
 
   surpriseMessage: {
-    headline: "You Are My Greatest Blessing",
-    subtext: "I have arranged a real surprise weekend getaway just for you! Pack a bag for Friday morning...",
-    giftCardCode: "SALONI-BIRTHDAY-2026-PARIS-VIP",
-    secretNote: "Check your bedside nightstand drawer for two golden envelopes with plane tickets to Paris!"
+    headline: "A Small Letter For You",
+    subtext: "Sirf ek note, dil se.",
+    secretNote: "Saloni, tum meri zindagi ka sabse khoobsurat hissa ho. Tumhare bina, ye duniya adhoori lagti hai. Tum meri har khushi ka sabab ho, aur main hamesha tumhare saath rehna chahta hoon. Hm ye last note likh rhe hai tumahre liye uske baad kbhi future me tumahra msg aayega tbhi hm v reply krenge ya msg v aise kbhi ab bina mtlb ke disturb nhi krenge tmko tm jha v ho khush rho hmko abhi v tumse hi pyaar hai or hmko kbhi kisi or se pyaar v nhi hoga jo hm bole the ki tumse hi krenge hm last love wo tm hi ho tumahri jgh mere zindagi me koi nhi le skta hai kbhi v . Hm tumahra hmesha wait krenge saloni jb tk zinda rhenge hmesha mtlb hmesha or ye promise  kr rhe hai tmko saloni ki har saal birthday wish krenge tumko Tum glt ki ho yaar hmse ek baar glti hua tha hm bahut maafi mange hai saloni bahut rote hai us glti ke wjh se aaj mere paas koi v nhi bacha bs ek akela room hai akele rhte hai tmko yaad krte rhte hai song sunte rhte hai tumahra photo dekhte rhte hai tumahra har ek photo sambhal ke rkhe hai saloni hm jante hai bhagwan tumko jarur mere paas layenege ek din or saloni kbhi v tmko mere paas aana hoga bina kuch soche apna smjh ke bs ek msg krna saloni hm tumahre paas rhenge koi v problem me kbhi v bahut rote hai yaar saloni kaise chor ke chli gyi tm or ek to nasha ka aadat lga hai hmko bahut jayda pta na kaise sb chutega chlo enjoy kro saloni tumahra day hai aage se disturb nhi krenge tumko kbhi . Tum meri zindagi ka sabse khoobsurat hissa ho, aur main hamesha tumhe pyaar karta rahunga."
   }
 };

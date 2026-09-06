@@ -2,17 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
-import { Sparkles, Heart, Infinity as InfinityIcon, ArrowRight } from 'lucide-react';
+import { motion, useMotionValue, animate } from 'framer-motion';
+import { Sparkles, Infinity as InfinityIcon, ArrowRight } from 'lucide-react';
 import { BIRTHDAY_DATA } from '@/data/content';
 
 export default function ReasonsPage() {
   const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => Math.floor(latest));
   const [displayCount, setDisplayCount] = useState(0);
 
   useEffect(() => {
-    const controls = animate(count, 100, {
+    const controls = animate(count, 10, {
       duration: 3,
       ease: 'easeOut',
       onUpdate: (latest) => setDisplayCount(Math.floor(latest)),
@@ -27,7 +26,7 @@ export default function ReasonsPage() {
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#120e1e] border border-[#e6ca85]/30 text-xs font-mono text-[#e6ca85] uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>An Infinite List</span>
+            <span>Ten Little Reasons</span>
           </div>
 
           <div className="flex items-center justify-center gap-4">
@@ -40,7 +39,7 @@ export default function ReasonsPage() {
             Reasons Why I Love You
           </h1>
           <p className="font-serif-display text-base sm:text-xl text-stone-300 italic">
-            Though a hundred cards cannot contain a fraction of how much you mean to me.
+            Ten cards for now, with more words Amit will add from his heart.
           </p>
         </div>
 

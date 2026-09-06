@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Sparkles, Heart, ArrowRight } from 'lucide-react';
+import { Sparkles, Heart, ArrowRight, Mail } from 'lucide-react';
 import MagneticButton from '@/components/ui/MagneticButton';
 import { useAudio } from '@/components/ui/AudioProvider';
 import { BIRTHDAY_DATA } from '@/data/content';
@@ -144,6 +145,30 @@ export default function EntrancePage() {
         >
           &ldquo;In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine.&rdquo;
         </motion.p>
+
+        <Link
+          href="/letter"
+          aria-label="Open the letter"
+          className="block w-full max-w-xl"
+        >
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.85, duration: 0.8 }}
+          className="w-full rounded-2xl border border-[#e6ca85]/30 bg-[#120e1e]/65 px-5 py-4 shadow-xl backdrop-blur-md transition-all hover:-translate-y-1 hover:border-[#e6ca85] hover:shadow-[0_12px_40px_rgba(230,202,133,0.2)]"
+        >
+          <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#e6ca85]/30 bg-[#e6ca85]/10 px-3 py-1 text-[11px] font-mono uppercase tracking-widest text-[#e6ca85]">
+            <Mail className="h-3.5 w-3.5 text-[#df95a6]" />
+            <span>A Letter For You</span>
+          </div>
+          <h2 className="font-serif-display text-2xl sm:text-3xl font-bold text-stone-100">
+            {BIRTHDAY_DATA.surpriseMessage.headline}
+          </h2>
+          <p className="mt-2 font-serif-display text-base sm:text-lg italic text-[#df95a6]">
+            {BIRTHDAY_DATA.surpriseMessage.subtext}
+          </p>
+        </motion.div>
+        </Link>
 
         {/* Glowing Heartbeat ENTER Button */}
         <motion.div

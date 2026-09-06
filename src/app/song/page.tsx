@@ -32,9 +32,8 @@ export default function SongPage() {
           </p>
         </div>
 
-        {/* Music Experience Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-          {/* Left: Spinning Vinyl Player & Controls */}
+        {/* Music Player */}
+        <div className="max-w-2xl mx-auto">
           <div className="glass-panel rounded-3xl p-5 sm:p-10 border border-[#e6ca85]/30 flex flex-col items-center gap-6 sm:gap-8 shadow-2xl text-center">
             {/* Vinyl Record */}
             <div className="relative w-52 h-52 sm:w-72 sm:h-72 flex items-center justify-center">
@@ -71,6 +70,9 @@ export default function SongPage() {
               </h2>
               <p className="font-sans-body text-xs text-stone-400 font-mono tracking-wider">
                 {BIRTHDAY_DATA.soundtrackArtist}
+              </p>
+              <p className="font-serif-display text-sm sm:text-base text-stone-300 italic">
+                This music stays here, just for you.
               </p>
             </div>
 
@@ -109,39 +111,6 @@ export default function SongPage() {
               <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
                 <Heart className="w-5 h-5 text-[#df95a6] fill-current animate-pulse" />
               </div>
-            </div>
-          </div>
-
-          {/* Right: Synchronized Lyrics Stream */}
-          <div className="glass-panel rounded-3xl p-8 sm:p-10 border border-white/10 h-full flex flex-col justify-center space-y-8 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <h3 className="font-serif-display text-2xl font-bold text-gold-gradient">
-                Synced Lyrics
-              </h3>
-              <Sparkles className="w-5 h-5 text-[#e6ca85]" />
-            </div>
-
-            <div className="space-y-6 max-h-[350px] overflow-y-auto pr-2">
-              {BIRTHDAY_DATA.lyrics.map((line, idx) => {
-                const isActive = currentTime >= line.timeSec && (idx === BIRTHDAY_DATA.lyrics.length - 1 || currentTime < BIRTHDAY_DATA.lyrics[idx + 1].timeSec);
-                return (
-                  <motion.p
-                    key={idx}
-                    animate={{
-                      scale: isActive ? 1.05 : 1,
-                      opacity: isActive ? 1 : 0.4,
-                      color: isActive ? '#e6ca85' : '#c8c3b7',
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className={`font-serif-display text-lg sm:text-xl leading-relaxed cursor-pointer ${
-                      isActive ? 'font-bold underline decoration-[#df95a6] decoration-2' : ''
-                    }`}
-                    onClick={() => seekTo(line.timeSec)}
-                  >
-                    {line.text}
-                  </motion.p>
-                );
-              })}
             </div>
           </div>
         </div>
