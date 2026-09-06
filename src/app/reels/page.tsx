@@ -1,16 +1,40 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Film, Heart, Play } from 'lucide-react';
 
-const REELS = [
+type ReelKind = 'image' | 'video';
+
+interface ReelItem {
+  filename: string;
+  title: string;
+  note: string;
+  kind: ReelKind;
+}
+
+const REELS: ReelItem[] = [
   {
     filename: 'last bond 1.mp4',
     title: 'The Last Bond',
     note: 'One more little memory to keep close.',
+    kind: 'video',
   },
   {
     filename: 'reels.mp4',
     title: 'Our Reel',
     note: 'A few seconds of us, saved forever.',
+    kind: 'video',
+  },
+  {
+    filename: 'screen.jpeg',
+    title: 'A Message To Remember',
+    note: 'A little piece of our story, kept close.',
+    kind: 'image',
+  },
+  {
+    filename: 'screenshot.PNG',
+    title: 'A Memory In Words',
+    note: 'Some moments deserve to stay exactly as they were.',
+    kind: 'image',
   },
 ];
 
@@ -36,14 +60,24 @@ export default function ReelsPage() {
               className="group w-full max-w-sm overflow-hidden rounded-[1.5rem] border border-[#e6ca85]/20 bg-[#11101a] shadow-2xl transition-transform duration-500 hover:-translate-y-1 hover:border-[#e6ca85]/60"
             >
               <div className="relative aspect-[9/16] overflow-hidden bg-black">
-                <video
-                  src={`/image/${encodeURIComponent(reel.filename)}`}
-                  controls
-                  muted 
-                  playsInline
-                  preload="metadata"
-                  className="h-full w-full object-contain"
-                />
+                {reel.kind === 'video' ? (
+                  <video
+                    src={`/image/${encodeURIComponent(reel.filename)}`}
+                    controls
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className="h-full w-full object-contain"
+                  />
+                ) : (
+                  <Image
+                    src={`/image/${reel.filename}`}
+                    alt={reel.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 384px"
+                    className="object-contain"
+                  />
+                )}
                 <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between bg-gradient-to-b from-black/70 to-transparent p-4">
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/45 px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-md">
                     <Play className="h-3 w-3 fill-current text-[#df95a6]" />

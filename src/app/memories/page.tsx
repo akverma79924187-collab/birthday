@@ -19,6 +19,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
   { src: 'BLZJ8437.JPG', title: 'Golden Hour', kind: 'image' },
   { src: 'DZYA6663.MP4', title: 'A Little Moment', kind: 'video' },
   { src: 'IGPP7937.JPG', title: 'Soft Smiles', kind: 'image' },
+  { src: 'screen.jpeg', title: 'A Message To Remember', kind: 'image' },
+  { src: 'screenshot.PNG', title: 'A Memory In Words', kind: 'image' },
   { src: 'IMG_0924.JPG', title: 'A New Memory', kind: 'image' },
   { src: 'IMG_0925.JPG', title: 'A New Smile', kind: 'image' },
   { src: 'IMG_0927.JPG', title: 'A Beautiful Day', kind: 'image' },
