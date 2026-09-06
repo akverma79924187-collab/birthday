@@ -1,9 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Heart, Mail, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Sparkles, Heart } from 'lucide-react';
 import { BIRTHDAY_DATA } from '@/data/content';
 
 export default function LetterPage() {
@@ -19,7 +18,7 @@ export default function LetterPage() {
             <span>Confidential & Devoted</span>
           </div>
           <h1 className="font-serif-display text-4xl sm:text-7xl font-bold text-gold-gradient">
-            An Interactive Love Letter
+            Mere Dil Se Likha hua Last  Love Letter
           </h1>
           <p className="font-serif-display text-base sm:text-xl text-stone-300 italic">
             Tap the wax-sealed envelope to unseal my heart&apos;s innermost words.
@@ -105,16 +104,6 @@ export default function LetterPage() {
         </div>
       </div>
 
-      {/* Next CTA */}
-      <div className="mt-16 text-center">
-        <Link
-          href="/universe"
-          className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#e6ca85] to-[#df95a6] text-[#07060a] font-bold text-xs uppercase tracking-widest hover:scale-105 transition-all shadow-xl"
-        >
-          <span>Enter 3D Interactive Universe</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-      </div>
     </div>
   );
 }

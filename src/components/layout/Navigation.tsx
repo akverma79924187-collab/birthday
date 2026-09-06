@@ -17,8 +17,6 @@ const NAV_ITEMS = [
   { path: '/reasons', label: 'Reasons' },
   { path: '/song', label: 'Song' },
   { path: '/letter', label: 'Letter' },
-  { path: '/universe', label: '3D Universe' },
-  { path: '/future', label: 'Future' },
   { path: '/surprise', label: 'Surprise' },
   { path: '/forever', label: 'Forever' },
 ];

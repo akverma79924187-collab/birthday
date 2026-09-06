@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Sparkles, Heart, ArrowRight, Mail } from 'lucide-react';
+import { Sparkles, Heart, ArrowRight, Mail, Gift } from 'lucide-react';
 import MagneticButton from '@/components/ui/MagneticButton';
 import { useAudio } from '@/components/ui/AudioProvider';
 import { BIRTHDAY_DATA } from '@/data/content';
@@ -169,6 +169,22 @@ export default function EntrancePage() {
           </p>
         </motion.div>
         </Link>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.8 }}
+          className="pt-1"
+        >
+          <Link
+            href="/surprise"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#df95a6]/60 bg-[#df95a6]/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-[#f2b3bd] shadow-[0_0_30px_rgba(223,149,166,0.12)] transition-all hover:-translate-y-1 hover:border-[#e6ca85] hover:bg-[#e6ca85]/15 hover:text-[#e6ca85] hover:shadow-[0_0_40px_rgba(230,202,133,0.2)]"
+          >
+            <Gift className="h-4 w-4 transition-transform group-hover:rotate-12" />
+            <span>Open Your Surprise</span>
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </motion.div>
 
         {/* Glowing Heartbeat ENTER Button */}
         <motion.div

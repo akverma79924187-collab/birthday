@@ -15,8 +15,6 @@ const PATH_FLOW = [
   '/reasons',
   '/song',
   '/letter',
-  '/universe',
-  '/future',
   '/surprise',
   '/forever',
 ];

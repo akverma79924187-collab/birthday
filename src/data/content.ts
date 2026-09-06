@@ -38,16 +38,6 @@ export interface Reason {
   category: 'Sweet' | 'Funny' | 'Deep' | 'Everyday';
 }
 
-export interface FutureDream {
-  id: string;
-  title: string;
-  timeframe: string;
-  description: string;
-  image: string;
-  location: string;
-  status: 'Planned' | 'Dreaming' | 'Forever';
-}
-
 export const BIRTHDAY_DATA = {
   herName: "Saloni",
   hisName: "Amit",
@@ -56,14 +46,14 @@ export const BIRTHDAY_DATA = {
   ageYears: "24",
   relationshipStart: "October 14, 2021",
   mainThemeColor: "#e6ca85",
-  soundtrackTitle: "Until I Found You",
-  soundtrackArtist: "Stephen Sanchez",
-  soundtrackAudioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-cinematic-piano-113220.mp3",
-  
+  soundtrackTitle: "Kaun Tujhe",
+  soundtrackArtist: "Instrumental Ringtone",
+  soundtrackAudioUrl: "/song/Instrumental%20Ringtone%20__%20Kaun%20Tujhe%20Yu%20Pyar%20Karega%20Instrumental%20Ringtone%20__%20Kaun%20Tujhe%20Song%20Ringtone.mp3",
+
   featuredVideo: "/image/KJUD8091.MP4",
-  
+
   heroSubheading: "A cinematic celebration dedicated to the most extraordinary person in my universe.",
-  
+
   story: [
     {
       id: "story-1",
@@ -72,7 +62,6 @@ export const BIRTHDAY_DATA = {
       title: "The First Instant",
       subtitle: "Where time held its breath",
       description: "First time jb tmko hm dekhe the tb se hi tumse pyar ho gya tha bahut jayda saloni lekin jb tum mil gyi hmko tb se hm tmko bacha ke rkhe or aisa koi glti nhi kiye the jisse tmko hmko chorna pre lekin ek glti hua hmse or hmdono alg ho gye saloni abhi v tumse bahut pyar hai hmko or hm bs tumahra hi wait kr rhe hai kbhi v tmko wapas aana hoga bina kuch soche smjhe hmko msg kr skti ho ab se kbhi hurt nhi krenge saloni or tmko hm kbhi v accept kr lenge kaise v aaogi to hmesha se tumahre hai tumse hi ek hmko pyar hua hai hmko or kisi se v  nhi aaj v tumahraa wait kr rhe hai",
-      
       image: "/image/BLZJ8437.JPG",
       highlight: "The exact second my world changed direction."
     },
@@ -233,63 +222,11 @@ export const BIRTHDAY_DATA = {
   letter: {
     salutation: "To My Dearest Saloni,",
     paragraphs: [
-      "As I sit down to write this letter, the house is quiet and moonlight filters through the window blinds. I catch myself smiling just thinking about your face, your laugh, and the incredible journey we have shared together.",
-      "When we first met, I knew you were special. But I could never have anticipated just how profoundly you would reshape my world. You brought light into dark corners, quiet grace into noisy days, and an unconditional warmth that makes every challenge feel small.",
-      "Thank you for being my confidante, my partner in crime, my favorite adventure buddy, and my absolute best friend. Thank you for your patience, your brilliant mind, your gentle touch, and your radiant spirit.",
-      "Today, as we celebrate your birthday, I want you to know that my love for you isn't tied to a moment or a season. It grows deeper with every morning coffee, every shared joke, every quiet glance, and every starlit night.",
-      "May this year bring you boundless health, overwhelming joy, thrilling discoveries, and all the magical dreams your beautiful heart desires. I will be right here beside you, loving you more with every tick of the clock."
+      "Hii Saloni , Mujhe pta hai tum kisi or ke saath khush to nhi hogi mere bina or hm v khush  nhi hai pta nhi aisa kya hua jo hmdono alg ho gye hai ye to nhi hona chahiye tha na yaar hmdono ka promise tha ki saaadi se phle alg nhi honge ha hm maan rhe hai hmse glti hua tha ek do mahina thora hm pgla gye the lekin hm sb shi kr dete na tum ek baar bolti to tum sidhe hmko chorna hi psnd ki wo nhi krna chahiye tha yaar or hmko pta hai ye lrka log bahut kamina hota hai fer me hi rhta hai kb kiska relationship tute or bharka ke hm jgh le le uska tm usko nhi smjh paayi yaar tm mere sath rhi thi na 3 saal or tm hmko chor di tumahre last love the na saloni bahut rote hai tumahre liye choro yaar jo v hua shi to nhi hua hai hmdono ke bich me lekin hm apna glti sudhar liye hai hm tumahra hmesha wait krenge jb tumko duniya dikh jayega or wo lrka chor jayega tb tum bina kuch soche smjhe hmko msg krna hm hmesha wait krenge saloni kbhi v koi v thora sa v problem hoga hm promise kiye hai hm jarur aayenge kbhi v tumahre liye availabe rhenge bs jha ho kisi ke saath ho khush rhna or ab se hm kbhi disturb nhi krenge tumko saloni hm ye new sim liye hai sirf tmko birthday wish krne ke liye bahut sara new sim liye hai tumse baat krne ke liye lekin ek call me block krti ho itne bure the kya saloni jo itna hate ho gya hmse yaar 2mahina me itna change aisi to nhi to thi saloni tm yaar ikdm  masum thi bahut jayda pyari thi tm choro koi baat nhi agr ye msg prhogi to ek baar has dena love you byy saloni wait krenge saadi nhi krenge wait rhega tumahra saloni hmesha love you or once again happy birthday my love . "
     ],
     closing: "Forever & Entirely Yours,",
     signature: "Amit"
   },
-
-  futureDreams: [
-    {
-      id: "fd-1",
-      title: "Glass Igloo Under the Northern Lights",
-      timeframe: "Winter 2026",
-      description: "Lying warm under heavy duvets in Lapland, watching emerald Aurora borealis ribbons dance across polar skies together.",
-      image: "/image/BLZJ8437.JPG",
-      location: "Rovaniemi, Finland",
-      status: "Planned"
-    },
-    {
-      id: "fd-2",
-      title: "Our Sunlit Architectural Sanctuary",
-      timeframe: "2027",
-      description: "Building our dream home with floor-to-ceiling glass, an expansive garden filled with white hydrangeas, and a library room with a fireplace.",
-      image: "/image/IMG_7350.JPG",
-      location: "Countryside Hills",
-      status: "Dreaming"
-    },
-    {
-      id: "fd-3",
-      title: "Sailing the Amalfi Coast at Sunset",
-      timeframe: "Summer 2027",
-      description: "Chartering a private wooden sailboat around Capri, diving into crystal sapphire waters, and drinking limoncello on deck.",
-      image: "/image/JBIR1312.JPG",
-      location: "Amalfi, Italy",
-      status: "Planned"
-    },
-    {
-      id: "fd-4",
-      title: "Adopting Our Golden Retriever",
-      timeframe: "Spring 2027",
-      description: "Welcoming a fluffy golden pup who will run wildly through autumn leaves on our weekend forest walks.",
-      image: "/image/UXLE1443.JPG",
-      location: "Our Back Garden",
-      status: "Dreaming"
-    },
-    {
-      id: "fd-5",
-      title: "Growing Old Side by Side",
-      timeframe: "Forever",
-      description: "Sitting on our porch rocking chairs fifty years from today, holding hands with wrinkled fingers, still head over heels in love.",
-      image: "/image/WURB1366.JPG",
-      location: "Everywhere",
-      status: "Forever"
-    }
-  ] as FutureDream[],
 
   surpriseMessage: {
     headline: "A Small Letter For You",
